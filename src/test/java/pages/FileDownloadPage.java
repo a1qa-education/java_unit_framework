@@ -1,5 +1,6 @@
 package pages;
 
+import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.ILink;
 import aquality.selenium.forms.Form;
 import constants.LocatorConstants;
@@ -18,11 +19,13 @@ public class FileDownloadPage extends Form {
 
     public boolean isFileDownloadLinkDisplayed(String name) {
         // todo: implement
-        return false;
+
+        return getFileDownloadLink(name).state().waitForDisplayed();
     }
 
     private ILink getFileDownloadLink(String name) {
         // todo: implement
-        return null;
+        return AqualityServices.getElementFactory().
+                getLink(By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH, name)),name);
     }
 }

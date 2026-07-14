@@ -1,6 +1,7 @@
 package tests;
 
 import aquality.selenium.browser.AlertActions;
+import aquality.selenium.browser.Browser;
 import pages.JavaScriptAlertsPage;
 import constants.MainPageNavigation;
 import org.testng.Assert;
@@ -15,7 +16,8 @@ public class AlertTest extends BaseTest {
     public void alertTest() {
         mainPage.clickNavigationLink(MainPageNavigation.JAVASCRIPT_ALERT);
         javaScriptAlertsPage.clickForJsAlertBtn();
-        getBrowser().handleAlert(AlertActions.ACCEPT);
+        browser.handleAlert(AlertActions.ACCEPT);
         Assert.assertTrue(javaScriptAlertsPage.isSuccessLabelDisplayed(), "Success msg is not displayed");
+
     }
 }

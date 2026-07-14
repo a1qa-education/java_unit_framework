@@ -1,6 +1,7 @@
 package tests;
 
 import aquality.selenium.browser.AqualityServices;
+import aquality.selenium.browser.Browser;
 import pages.MainPage;
 import utils.EnvDataReader;
 import org.testng.annotations.AfterMethod;
@@ -10,11 +11,14 @@ import static aquality.selenium.browser.AqualityServices.getBrowser;
 
 public abstract class BaseTest {
     protected final MainPage mainPage = new MainPage();
+    protected Browser browser;
 
     @BeforeMethod
     public void setup() {
-        getBrowser().maximize();
-        getBrowser().goTo(EnvDataReader.getEnvData().getHost());
+        browser = AqualityServices.getBrowser();
+        browser.maximize();
+        browser.goTo(EnvDataReader.getEnvData().getHost());
+
     }
 
     @AfterMethod

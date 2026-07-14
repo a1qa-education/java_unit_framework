@@ -7,6 +7,7 @@ import aquality.selenium.forms.Form;
 import constants.LocatorConstants;
 import org.openqa.selenium.By;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataTablesPage extends Form {
@@ -19,7 +20,11 @@ public class DataTablesPage extends Form {
 
     public List<String> getFirstDueList() {
         // todo: implement
-        return null;
+        List<String> dueList = new ArrayList<>();
+        for(ILabel label : getFirstDueLblList()){
+            dueList.add(label.getText());
+        }
+        return dueList;
     }
 
     private List<ILabel> getFirstDueLblList() {
