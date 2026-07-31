@@ -1,6 +1,5 @@
 package pages;
 
-import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.ILink;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
@@ -24,14 +23,5 @@ public class FileDownloadPage extends Form {
     private ILink getFileDownloadLink(String name) {
         // todo: implement
         return null;
-    }
-    public String getLeftFrameText() {
-        AqualityServices.getBrowser().getDriver().switchTo().frame("frame-top");
-        AqualityServices.getBrowser().getDriver().switchTo().frame("frame-left");
-        String text = AqualityServices.getBrowser().getDriver()
-                .findElement(By.tagName("body"))
-                .getText();
-        AqualityServices.getBrowser().getDriver().switchTo().defaultContent();
-        return text;
     }
 }
