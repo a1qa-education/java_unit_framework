@@ -1,15 +1,15 @@
 package pages;
 
+import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.ILink;
 import aquality.selenium.forms.Form;
-import constants.LocatorConstants;
 import org.openqa.selenium.By;
 
 public class FileDownloadPage extends Form {
     private static final String NAME = "File Download";
 
     public FileDownloadPage() {
-        super(By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH, NAME)), NAME);
+        super(By.xpath("//h1[text()='File Download']"), NAME);
     }
 
     public void clickFileDownloadLink(String name) {
@@ -24,5 +24,14 @@ public class FileDownloadPage extends Form {
     private ILink getFileDownloadLink(String name) {
         // todo: implement
         return null;
+    }
+    public String getLeftFrameText() {
+        AqualityServices.getBrowser().getDriver().switchTo().frame("frame-top");
+        AqualityServices.getBrowser().getDriver().switchTo().frame("frame-left");
+        String text = AqualityServices.getBrowser().getDriver()
+                .findElement(By.tagName("body"))
+                .getText();
+        AqualityServices.getBrowser().getDriver().switchTo().defaultContent();
+        return text;
     }
 }
