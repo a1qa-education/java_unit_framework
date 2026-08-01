@@ -1,23 +1,19 @@
 package pages;
 
-import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.IButton;
-import aquality.selenium.elements.interfaces.IElementFactory;
 import aquality.selenium.elements.interfaces.ILabel;
 import aquality.selenium.forms.Form;
-import constants.LocatorConstants;
 import org.openqa.selenium.By;
 
 public class JavaScriptAlertsPage extends Form {
     private static final String PAGE_NAME = "JavaScript Alerts";
-    private final IElementFactory elementFactory = AqualityServices.getElementFactory();
-    private final By clickForJsAlertButton = By.xpath("//button[@onclick='jsAlert()']");
-    private final By successMessage = By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH, "You successfully clicked an alert"));
-    private final IButton clickForJsAlertBtn = elementFactory.getButton(clickForJsAlertButton, "Click for JS alert");
-    private final ILabel successLbl = elementFactory.getLabel(successMessage, "Success");
+    private final By CLICK_FOR_JS_ALERT_BUTTON = By.xpath("//button[@onclick='jsAlert()']");
+    private final By SUCCESS_MESSAGE = By.xpath("//p[text()='You successfully clicked an alert']");
+    private IButton clickForJsAlertBtn = getElementFactory().getButton(CLICK_FOR_JS_ALERT_BUTTON, "Click for JS alert");
+    private ILabel successLbl = getElementFactory().getLabel(SUCCESS_MESSAGE, "Success");
 
     public JavaScriptAlertsPage() {
-        super(By.xpath(String.format(LocatorConstants.PRECISE_TEXT_XPATH, PAGE_NAME)), PAGE_NAME);
+        super(By.xpath("//h1[text()='JavaScript Alerts']"), PAGE_NAME);
     }
 
     public void clickForJsAlertBtn() {

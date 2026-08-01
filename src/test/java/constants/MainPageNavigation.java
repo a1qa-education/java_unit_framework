@@ -9,9 +9,12 @@ public enum MainPageNavigation {
     DYNAMIC_CONTROLS("Dynamic Controls"),
     FILE_DOWNLOAD("File Download"),
     FILE_UPLOAD("File Upload"),
-    BASIC_AUTH("Basic Auth");
+    BASIC_AUTH("Basic Auth"),
+    FRAMES("Frames"),
+    MULTIPLE_WINDOWS("Multiple Windows");
 
-    private final String label;
+
+    public final String label;
 
     MainPageNavigation(String label) {
         this.label = label;
