@@ -11,7 +11,8 @@ public enum MainPageNavigation {
     FILE_UPLOAD("File Upload"),
     BASIC_AUTH("Basic Auth"),
     FRAMES("Frames"),
-    MULTIPLE_WINDOWS("Multiple Windows");
+    MULTIPLE_WINDOWS("Multiple Windows"),
+    FORM_AUTHENTICATION("Form Authentication");
 
 
     public final String label;
