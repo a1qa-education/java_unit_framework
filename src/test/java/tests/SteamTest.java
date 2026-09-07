@@ -48,7 +48,9 @@ public class SteamTest {
 
         Thread.sleep(3000);
 
-        WebElement singlePlayer = driver.findElement(By.xpath("//span[@role='button']//span[contains(text(),'Singleplayer')]"));
+        driver.findElement(By.xpath("//div[text()='Narrow by number of players']")).click();
+        Thread.sleep(3000);
+        WebElement singlePlayer = driver.findElement(By.xpath("//span[@role='button']//span[contains(text(),'Single-player')]"));
 
         if (singlePlayer != null) {
             singlePlayer.click();
@@ -106,7 +108,7 @@ public class SteamTest {
     }
 
     @Test
-    public void STEAM_TC_002_Dynamic_Filtering_macOS_Indie_Descending_Price_Sorting()
+    public void STEAM_TC_002_Dynamic_Filtering_macOS_Multiplayer_Descending_Price_Sorting()
             throws Exception {
 
         WebDriver driver = new ChromeDriver();
@@ -141,7 +143,10 @@ public class SteamTest {
 
         Thread.sleep(3000);
 
-        WebElement indie = driver.findElement(By.xpath("//span[@role='button']//span[contains(text(),'Indie')]"));
+        driver.findElement(By.xpath("//div[text()='Narrow by number of players']")).click();
+        Thread.sleep(3000);
+
+        WebElement indie = driver.findElement(By.xpath("//span[@role='button']//span[contains(text(),'Multi-player')]"));
 
         if (indie != null) {
             indie.click();
