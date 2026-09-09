@@ -203,4 +203,17 @@ public class SteamTest {
 
         driver.quit();
     }
+/*
+    // Need to exclude from run
+    @Test
+    public void STEAM_TC_003() {
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://store.steampowered.com/");
+
+        Assert.assertNotNull(driver.getTitle());
+        Assert.assertNotNull(driver.findElement(By.tagName("body")));
+        Assert.assertNotNull(driver.findElement(By.tagName("body")));
+    }
+ */
 }
